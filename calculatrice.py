@@ -1,35 +1,27 @@
-def calculatrice():
-    print("=== Calculatrice ===")
-    print("Opérations disponibles : +  -  *  /")
+print("=== CALCULATRICE ===")
 
-    while True:
-        try:
-            a = float(input("Premier nombre : "))
-            op = input("Opérateur (+, -, *, /) : ")
-            b = float(input("Deuxième nombre : "))
+premier_nombre = float(input("Premier nombre : "))
+operation = input("Opération (+, -, *, /) : ")
+deuxieme_nombre = float(input("Deuxième nombre : "))
 
-            if op == "+":
-                resultat = a + b
-            elif op == "-":
-                resultat = a - b
-            elif op == "*":
-                resultat = a * b
-            elif op == "/":
-                if b == 0:
-                    print("Erreur : division par zéro")
-                    continue
-                resultat = a / b
-            else:
-                print("Opérateur invalide")
-                continue
+if operation == "+":
+    resultat = premier_nombre + deuxieme_nombre
+    print("Résultat :", resultat)
 
-            print("Résultat :", resultat)
+elif operation == "-":
+    resultat = premier_nombre - deuxieme_nombre
+    print("Résultat :", resultat)
 
-        except ValueError:
-            print("Entrée invalide")
+elif operation == "*":
+    resultat = premier_nombre * deuxieme_nombre
+    print("Résultat :", resultat)
 
-        choix = input("Continuer ? (o/n) : ")
-        if choix.lower() != "o":
-            break
+elif operation == "/":
+    if deuxieme_nombre != 0:
+        resultat = premier_nombre / deuxieme_nombre
+        print("Résultat :", resultat)
+    else:
+        print("Erreur : division par zéro")
 
-calculatrice()
+else:
+    print("Opération invalide")
