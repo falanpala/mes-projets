@@ -1,19 +1,21 @@
 import pygame
 import pytmx
 import pyscroll
-from player import Player          # ← import ajouté
+from player import Player
 
 class Game:
     def __init__(self):
         self.screen = pygame.display.set_mode((800, 700))
         pygame.display.set_caption("1erjeuvideo")
 
-        tmx_data = pytmx.util_pygame.load_pygame('1er_jeu/carte.tmx')
+        tmx_data = pytmx.util_pygame.load_pygame('/home/falanpala/assets/carte.tmx')
         map_data = pyscroll.data.TiledMapData(tmx_data)
         map_layer = pyscroll.orthographic.BufferedRenderer(map_data, self.screen.get_size())
         map_layer.zoom = 2
 
-        self.player = Player()
+        # Position initiale du joueur (exemple : au centre de l'écran en coordonnées monde)
+        self.player = Player(400, 300)
+
         self.groupe = pyscroll.PyscrollGroup(map_layer=map_layer, default_layer=1)
         self.groupe.add(self.player)
 
